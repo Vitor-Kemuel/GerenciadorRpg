@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { supabase } from "../../lib/supabaseClient";
 import styles from "./PersonagemPage.module.css";
 
@@ -20,14 +20,14 @@ type Inventario = {
   itens: string[];
 };
 
-type Personagem = {
-  id: number;
-  nome: string;
-  classe?: string;
-  nivel?: number;
-  atributos?: Atributos;
-  inventario?: Inventario;
-};
+// type Personagem = {
+//   id: number;
+//   nome: string;
+//   classe?: string;
+//   nivel?: number;
+//   atributos?: Atributos;
+//   inventario?: Inventario;
+// };
 
 export default function PersonagemPage({ personagemId, onVoltar }: PersonagemPageProps) {
   // const [personagem, setPersonagem] = useState<Personagem | null>(null);
@@ -52,40 +52,40 @@ export default function PersonagemPage({ personagemId, onVoltar }: PersonagemPag
 
   const [novoItemInventario, setNovoItemInventario] = useState("");
 
-  async function carregarDados() {
-    const { data: p, error } = await supabase
-      .from("personagens")
-      .select("*")
-      .eq("id", personagemId)
-      .single();
+  // async function carregarDados() {
+  //   const { data: p, error } = await supabase
+  //     .from("personagens")
+  //     .select("*")
+  //     .eq("id", personagemId)
+  //     .single();
 
-    if (error) {
-      alert("Erro ao carregar personagem: " + error.message);
-      return;
-    }
+  //   if (error) {
+  //     alert("Erro ao carregar personagem: " + error.message);
+  //     return;
+  //   }
 
-    // if (p) {
-    //   setPersonagem(p);
-    //   setForm({
-    //     nome: p.nome || "",
-    //     classe: p.classe || "",
-    //     nivel: p.nivel || 1,
-    //     atributos: p.atributos || {
-    //       forca: 10,
-    //       destreza: 10,
-    //       constituicao: 10,
-    //       inteligencia: 10,
-    //       sabedoria: 10,
-    //       carisma: 10,
-    //     },
-    //     inventario: p.inventario || { itens: [] },
-    //   });
-    // }
-  }
+  // if (p) {
+  //   setPersonagem(p);
+  //   setForm({
+  //     nome: p.nome || "",
+  //     classe: p.classe || "",
+  //     nivel: p.nivel || 1,
+  //     atributos: p.atributos || {
+  //       forca: 10,
+  //       destreza: 10,
+  //       constituicao: 10,
+  //       inteligencia: 10,
+  //       sabedoria: 10,
+  //       carisma: 10,
+  //     },
+  //     inventario: p.inventario || { itens: [] },
+  //   });
+  // }
+  // }
 
-  useEffect(() => {
-    carregarDados();
-  }, [personagemId]);
+  // useEffect(() => {
+  //   carregarDados();
+  // }, [personagemId]);
 
   function handleAtributoChange(nome: keyof Atributos, valor: number) {
     setForm((f) => ({
@@ -122,7 +122,7 @@ export default function PersonagemPage({ personagemId, onVoltar }: PersonagemPag
       alert("Erro ao salvar: " + error.message);
     } else {
       alert("Personagem salvo com sucesso!");
-      carregarDados();
+      // carregarDados();
     }
   }
 

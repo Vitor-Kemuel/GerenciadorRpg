@@ -22,11 +22,11 @@ type Personagem = {
   nivel?: number;
 };
 
-type Missao = {
-  id: number;
-  titulo: string;
-  descricao?: string;
-};
+// type Missao = {
+//   id: number;
+//   titulo: string;
+//   descricao?: string;
+// };
 
 type Local = {
   id: number;
@@ -45,8 +45,8 @@ export default function CampanhaPage({ campanhaId, onVoltar }: CampanhaPageProps
   const [novoPersonagemClasse, setNovoPersonagemClasse] = useState("");
   const [novoPersonagemNivel, setNovoPersonagemNivel] = useState<number>(1);
 
-  const [novaMissaoTitulo, setNovaMissaoTitulo] = useState("");
-  const [novaMissaoDescricao, setNovaMissaoDescricao] = useState("");
+  // const [novaMissaoTitulo, setNovaMissaoTitulo] = useState("");
+  // const [novaMissaoDescricao, setNovaMissaoDescricao] = useState("");
 
   const [novoLocalNome, setNovoLocalNome] = useState("");
   const [novoLocalDescricao, setNovoLocalDescricao] = useState("");
@@ -112,9 +112,9 @@ export default function CampanhaPage({ campanhaId, onVoltar }: CampanhaPageProps
   //   carregarDados();
   // }
 
-  // if (abrirMissoes) {
-  //   return <MissoesPage campanhaId={campanhaId} onVoltar={() => setAbrirMissoes(false)} />;
-  // }
+  if (abrirMissoes) {
+    return <MissoesPage campanhaId={campanhaId} onVoltar={() => setAbrirMissoes(false)} />;
+  }
 
   async function criarLocal() {
     if (!novoLocalNome.trim()) return alert("Nome do local é obrigatório");
