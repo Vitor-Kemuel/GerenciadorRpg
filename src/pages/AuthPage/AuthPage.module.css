@@ -1,0 +1,63 @@
+.container {
+  min-width: 300px;
+  max-width: 700px;
+  witdh: 100%;
+  min-height: 200px;
+  height: 100%;
+  margin: auto;
+  padding: 30px;
+  text-align: center;
+  background: #1f1f1f;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input {
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background: #2a2a2a;
+  color: white;
+}
+
+.button {
+  padding: 10px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #45a049;
+}
+
+.sucesso {
+  color: lightgreen;
+  margin-top: 10px;
+}
+
+.erro {
+  color: tomato;
+  margin-top: 10px;
+}
+
+.toggle {
+  margin-top: 15px;
+}
+
+.link {
+  background: none;
+  border: none;
+  color: #4cafef;
+  cursor: pointer;
+}

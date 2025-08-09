@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.87);
+  color-scheme: light dark;
+  font-synthesis: none;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  background-color: rgb(54, 54, 54);
+}
