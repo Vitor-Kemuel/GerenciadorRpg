@@ -30,7 +30,7 @@ type Personagem = {
 };
 
 export default function PersonagemPage({ personagemId, onVoltar }: PersonagemPageProps) {
-  const [personagem, setPersonagem] = useState<Personagem | null>(null);
+  // const [personagem, setPersonagem] = useState<Personagem | null>(null);
 
   // Formulário completo
   const [form, setForm] = useState({
@@ -64,23 +64,23 @@ export default function PersonagemPage({ personagemId, onVoltar }: PersonagemPag
       return;
     }
 
-    if (p) {
-      setPersonagem(p);
-      setForm({
-        nome: p.nome || "",
-        classe: p.classe || "",
-        nivel: p.nivel || 1,
-        atributos: p.atributos || {
-          forca: 10,
-          destreza: 10,
-          constituicao: 10,
-          inteligencia: 10,
-          sabedoria: 10,
-          carisma: 10,
-        },
-        inventario: p.inventario || { itens: [] },
-      });
-    }
+    // if (p) {
+    //   setPersonagem(p);
+    //   setForm({
+    //     nome: p.nome || "",
+    //     classe: p.classe || "",
+    //     nivel: p.nivel || 1,
+    //     atributos: p.atributos || {
+    //       forca: 10,
+    //       destreza: 10,
+    //       constituicao: 10,
+    //       inteligencia: 10,
+    //       sabedoria: 10,
+    //       carisma: 10,
+    //     },
+    //     inventario: p.inventario || { itens: [] },
+    //   });
+    // }
   }
 
   useEffect(() => {

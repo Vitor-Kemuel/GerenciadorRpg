@@ -37,7 +37,7 @@ type Local = {
 export default function CampanhaPage({ campanhaId, onVoltar }: CampanhaPageProps) {
   const [campanha, setCampanha] = useState<Campanha | null>(null);
   const [personagens, setPersonagens] = useState<Personagem[]>([]);
-  const [missoes, setMissoes] = useState<Missao[]>([]);
+  // const [missoes, setMissoes] = useState<Missao[]>([]);
   const [locais, setLocais] = useState<Local[]>([]);
 
   // Novos estados para os formulários
@@ -69,11 +69,11 @@ export default function CampanhaPage({ campanhaId, onVoltar }: CampanhaPageProps
       .eq("campanha_id", campanhaId);
     setPersonagens(personagensData || []);
 
-    const { data: missoesData } = await supabase
-      .from("missoes")
-      .select("*")
-      .eq("campanha_id", campanhaId);
-    setMissoes(missoesData || []);
+    // const { data: missoesData } = await supabase
+    //   .from("missoes")
+    //   .select("*")
+    //   .eq("campanha_id", campanhaId);
+    // setMissoes(missoesData || []);
 
     const { data: locaisData } = await supabase
       .from("locais")
@@ -100,21 +100,21 @@ export default function CampanhaPage({ campanhaId, onVoltar }: CampanhaPageProps
     carregarDados();
   }
 
-  async function criarMissao() {
-    if (!novaMissaoTitulo.trim()) return alert("Título da missão é obrigatório");
-    await supabase.from("missoes").insert([{
-      titulo: novaMissaoTitulo,
-      descricao: novaMissaoDescricao || null,
-      campanha_id: campanhaId,
-    }]);
-    setNovaMissaoTitulo("");
-    setNovaMissaoDescricao("");
-    carregarDados();
-  }
+  // async function criarMissao() {
+  //   if (!novaMissaoTitulo.trim()) return alert("Título da missão é obrigatório");
+  //   await supabase.from("missoes").insert([{
+  //     titulo: novaMissaoTitulo,
+  //     descricao: novaMissaoDescricao || null,
+  //     campanha_id: campanhaId,
+  //   }]);
+  //   setNovaMissaoTitulo("");
+  //   setNovaMissaoDescricao("");
+  //   carregarDados();
+  // }
 
-  if (abrirMissoes) {
-    return <MissoesPage campanhaId={campanhaId} onVoltar={() => setAbrirMissoes(false)} />;
-  }
+  // if (abrirMissoes) {
+  //   return <MissoesPage campanhaId={campanhaId} onVoltar={() => setAbrirMissoes(false)} />;
+  // }
 
   async function criarLocal() {
     if (!novoLocalNome.trim()) return alert("Nome do local é obrigatório");
